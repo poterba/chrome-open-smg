@@ -1,4 +1,4 @@
-# open-smg
+# Open SMG
 
 This Google Chrome extension made for streamers who want to display their music on their stream.
 

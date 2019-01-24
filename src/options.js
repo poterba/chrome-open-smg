@@ -2,7 +2,7 @@ function reset()
 {
   console.log( "reset options" );
   chrome.storage.local.set( {
-    notifications: true,
+    notifications: false,
     active: {},
     downloads: []
   }, restore );
@@ -23,6 +23,5 @@ function restore()
     }
   );
 }
-
 
 document.addEventListener('DOMContentLoaded', restore);

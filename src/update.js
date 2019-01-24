@@ -1,7 +1,4 @@
-function getNotificationId() {
-  var id = Math.floor(Math.random() * 9007199254740992) + 1;
-  return id.toString();
-}
+
 
 function updateTabInfo( _tabId, changeInfo, tab ) {
   // chrome.storage.local.get({ active: {} },
@@ -25,16 +22,6 @@ function updateTabInfo( _tabId, changeInfo, tab ) {
         currentDownloads = result.downloads;
         currentDownloads.push(_id);
         chrome.storage.local.set({ downloads: currentDownloads });
-        chrome.storage.local.get( { notifications: false }, function(result){
-          if (result.notifications) {
-            chrome.notifications.create( {
-              type: "basic",
-              iconUrl: "/res/ico/128x128.png",
-              title: "Open SMG",
-              message: tab.title
-            } );
-          }
-        } );
       });
     });
   }

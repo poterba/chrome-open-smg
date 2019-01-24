@@ -1,0 +1,10 @@
+{
+    "extName": {
+        "message": "Open SMG",
+        "desription": "Название расширения"
+    },
+    "extDescription": {
+        "message":  "Записывает название текущего трека в файл",
+        "desription": "Описание расширения"
+    }
+}
