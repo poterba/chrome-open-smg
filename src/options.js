@@ -1,26 +1,28 @@
-// Saves options to chrome.storage
-function save() {
-  var notifications = document.getElementById('notifications').value;
-  chrome.storage.sync.set(
-    { notifications: notifications },
-    function () { }
-  );
+function reset()
+{
+  console.log( "reset options" );
+  chrome.storage.local.set( {
+    notifications: true,
+    active: {},
+    downloads: []
+  }, restore );
 }
 
-function restore() {
-  chrome.storage.sync.get({ notifications: false },
-    function (items) {
-      document.getElementById('notifications').value = items.notifications;
-      document.getElementById('notifications').addEventListener('click', save);
+function restore()
+{
+  document.getElementById('reset').addEventListener('click', reset);
+
+  chrome.storage.local.get( { notifications: false }, function (items) {
+      // load, or initial setup
+      document.getElementById('notifications').checked = items.notifications;
+
+      // bind to save
+      document.getElementById('notifications').addEventListener('change', function(){
+        chrome.storage.local.set( { notifications: document.getElementById('notifications').checked } );
+      });
     }
   );
 }
 
-function getfolder(e) {
-  var files = e.target.files;
-  var path = files[0].webkitRelativePath;
-  var Folder = path.split("/");
-  alert(Folder[0]);
-}
 
 document.addEventListener('DOMContentLoaded', restore);
