@@ -1,10 +1,14 @@
 {
     "extName": {
         "message": "Open SMG",
-        "desription":  "Write your currently playing track name into file"
+        "desription":  "Extension name"
     },
     "extDescription": {
         "message":  "Write your currently playing track name into file",
-        "desription": "Название расширения"
+        "desription": "Extension description"
+    },
+    "optNotification": {
+        "message":  "Send desktop notifications",
+        "desription": "Option description"
     }
 }

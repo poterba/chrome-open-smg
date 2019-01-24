@@ -6,5 +6,9 @@
     "extDescription": {
         "message":  "Записывает название текущего трека в файл",
         "desription": "Описание расширения"
+    },
+    "optNotification": {
+        "message":  "Отправлять Google Chrome нотификации",
+        "desription": "Описание опции"
     }
 }

@@ -15,6 +15,7 @@ function restore()
   chrome.storage.local.get( { notifications: false }, function (items) {
       // load, or initial setup
       document.getElementById('notifications').checked = items.notifications;
+      document.getElementById('notificationsLabel').innerHTML = chrome.i18n.getMessage("optNotification");
 
       // bind to save
       document.getElementById('notifications').addEventListener('change', function(){
