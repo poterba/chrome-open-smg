@@ -8,7 +8,7 @@ function addPlaying(tab, number) {
   button.setAttribute('class', "pure-button");
   button.onclick = function () {
     console.log(tab);
-    chrome.tabs.update(tab.id, { active: true });
+    browser.tabs.update(tab.id, { active: true });
   }
   button.innerHTML = tab.title;
 
@@ -25,7 +25,7 @@ function updateCurrent() {
   fieldset.innerHTML = '';
   console.log('clear');
 
-  chrome.storage.local.get({ active: {} }, function (result) {
+  browser.storage.local.get({ active: {} }, function (result) {
 
     console.log(result.active);
     for (itemId in result.active)
@@ -33,7 +33,7 @@ function updateCurrent() {
   });
 }
 
-chrome.storage.onChanged.addListener(
+browser.storage.onChanged.addListener(
   function (changes, namespace) { updateCurrent(); }
 );
 

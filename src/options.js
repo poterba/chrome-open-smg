@@ -1,7 +1,7 @@
 function reset()
 {
   console.log( "reset options" );
-  chrome.storage.local.set( {
+  browser.storage.local.set( {
     notifications: false,
     active: {},
     downloads: []
@@ -12,14 +12,14 @@ function restore()
 {
   document.getElementById('reset').addEventListener('click', reset);
 
-  chrome.storage.local.get( { notifications: false }, function (items) {
+  browser.storage.local.get( { notifications: false }, function (items) {
       // load, or initial setup
       document.getElementById('notifications').checked = items.notifications;
-      document.getElementById('notificationsLabel').innerHTML = chrome.i18n.getMessage("optNotification");
+      document.getElementById('notificationsLabel').innerHTML = browser.i18n.getMessage("optNotification");
 
       // bind to save
       document.getElementById('notifications').addEventListener('change', function(){
-        chrome.storage.local.set( { notifications: document.getElementById('notifications').checked } );
+        browser.storage.local.set( { notifications: document.getElementById('notifications').checked } );
       });
     }
   );
